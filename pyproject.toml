@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sirue"
+version = "1.0.0"
+description = "Sistema Digital de Objetos Perdidos y Encontrados para Campus Universitario"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "Equipo de Arquitectura SIRUE", email = "arquitectura@campus.edu" }
+]
+keywords = [
+    "clean-architecture",
+    "hexagonal-architecture",
+    "domain-driven-design",
+    "nicegui",
+    "sqlalchemy",
+    "lost-and-found"
+]
+dependencies = [
+    "nicegui>=2.0.0",
+    "sqlalchemy>=2.0.0",
+    "python-multipart>=0.0.6",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+markers = [
+    "unit: Pruebas unitarias de dominio y aplicación",
+    "integration: Pruebas de integración con persistencia y storage",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.coverage.run]
+source = ["sirue"]
+omit = ["tests/*"]
+
+[tool.pyright]
+include = ["src", "tests", "main.py"]
+extraPaths = ["src"]
+pythonVersion = "3.10"
+pythonPlatform = "Linux"
+typeCheckingMode = "basic"

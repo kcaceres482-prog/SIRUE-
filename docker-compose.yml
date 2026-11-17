@@ -1,0 +1,39 @@
+# ========================================================
+# Docker Compose para SIRUE - Entorno Campus Universitario
+# ========================================================
+
+services:
+  sirue:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sirue-app
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      - SIRUE_HOST=0.0.0.0
+      - SIRUE_PORT=8080
+      - SIRUE_DB_PATH=/app/data/sirue.db
+      - SIRUE_UPLOAD_PATH=/app/uploads
+    volumes:
+      # Volúmenes persistentes para base de datos y archivos físicos
+      - sirue_data:/app/data
+      - sirue_uploads:/app/uploads
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+
+volumes:
+  # Volumen para persistencia de la base de datos SQLite
+  sirue_data:
+    name: sirue_data_volume
+    driver: local
+
+  # Volumen para almacenamiento permanente de fotografías subidas
+  sirue_uploads:
+    name: sirue_uploads_volume
+    driver: local

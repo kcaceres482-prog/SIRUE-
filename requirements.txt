@@ -1,0 +1,8 @@
+# Dependencias principales del sistema SIRUE
+nicegui>=2.0.0
+sqlalchemy>=2.0.0
+python-multipart>=0.0.6
+
+# Herramientas de testing y calidad de código
+pytest>=7.0.0
+pytest-cov>=4.0.0

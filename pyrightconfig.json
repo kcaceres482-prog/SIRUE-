@@ -1,0 +1,12 @@
+{
+    "include": [
+        "src",
+        "tests",
+        "main.py"
+    ],
+    "extraPaths": [
+        "src"
+    ],
+    "pythonVersion": "3.10",
+    "typeCheckingMode": "basic"
+}

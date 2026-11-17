@@ -1,0 +1,59 @@
+# Python bytecode y caches
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Distribuciones y builds
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Entornos virtuales
+venv/
+.venv/
+env/
+ENV/
+
+# Testing y cobertura
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# NiceGUI runtime session storage
+.nicegui/
+
+# Base de datos y subidas locales (excepto .gitkeep)
+data/*.db
+data/*.sqlite
+data/*.sqlite3
+uploads/*
+!uploads/.gitkeep
+data/*
+!data/.gitkeep
+
+# Variables de entorno
+.env
+.env.local
+
+# IDEs y editores
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
